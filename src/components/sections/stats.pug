@@ -1,0 +1,7 @@
+section.section(aria-label='Keepsake in numbers')
+  .container
+    ul.stats
+      each stat in stats
+        li.stats__item
+          span.stats__number= stat.number
+          span.stats__label= stat.label

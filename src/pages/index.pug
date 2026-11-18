@@ -1,0 +1,25 @@
+extends ../layouts/main
+
+append meta
+  meta(name='description' content='Keepsake is a design agency building identities, print and websites with care for every detail.')
+  meta(property='og:title' content='Keepsake | Design agency')
+  meta(property='og:description' content='We create brands people keep.')
+
+block data
+  include ../data/site-data
+
+block header
+  include ../components/header
+
+block content
+  main
+    include ../components/sections/hero
+    include ../components/sections/works
+    include ../components/sections/cta
+    include ../components/sections/services
+    include ../components/sections/stats
+    include ../components/sections/clients
+    include ../components/sections/journal
+
+block footer
+  include ../components/footer

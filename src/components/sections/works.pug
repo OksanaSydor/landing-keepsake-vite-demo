@@ -1,0 +1,13 @@
+section.section#works(aria-labelledby='works-title')
+  .container.works
+    h2.section-title#works-title Our awesome works
+    each category, i in categories
+      input.filter__radio.sr-only(type='radio' name='work-filter' id=`filter-${category.id}` checked=i === 0)
+    .filter__chips(aria-label='Filter portfolio by category')
+      each category in categories
+        label.filter__chip(for=`filter-${category.id}`)= category.label
+    .works__grid
+      each work, i in works
+        +work-card(work, i)
+    .works__more
+      +btn('Load more works', '#works', 'secondary')

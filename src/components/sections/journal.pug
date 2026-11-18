@@ -1,0 +1,15 @@
+section.section#journal(aria-labelledby='journal-title')
+  .container
+    h2.section-title#journal-title From the journal
+    .journal
+      each post in posts
+        article.journal__post
+          +picture(post.image, '', 'lazy', 150, 150)
+          .journal__body
+            p.journal__meta
+              time(datetime=post.date)= post.dateLabel
+              |  / 
+              span= post.category
+            h3= post.title
+            p= post.summary
+            a.journal__link(href='#journal' aria-label=`Read more: ${post.title}`) Read more

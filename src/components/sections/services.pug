@@ -1,0 +1,10 @@
+section.section#services(aria-labelledby='services-title')
+  .container
+    h2.section-title#services-title What do we do
+    ul.services
+      each service in services
+        li.services__item
+          .services__icon
+            +icon(service.icon)
+          h3= service.title
+          p= service.text

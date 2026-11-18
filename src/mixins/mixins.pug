@@ -1,0 +1,49 @@
+mixin icon(name, label)
+  svg.ic(aria-hidden=label ? null : 'true', role=label ? 'img' : null, aria-label=label || null, focusable='false')&attributes(attributes)
+    case name
+      when 'heart'
+        path(d='M12 20S4 15 4 9a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z')
+      when 'mail'
+        path(d='M3 5h18v14H3zM3 5l9 8 9-8')
+      when 'up'
+        path(d='M12 19V5M5 12l7-7 7 7')
+      when 'instagram'
+        path(d='M4 4h16v16H4z')
+        circle(cx='12' cy='12' r='4')
+      when 'globe'
+        circle(cx='12' cy='12' r='9')
+        path(d='M3 12h18M12 3c-4 5-4 13 0 18M12 3c4 5 4 13 0 18')
+      when 'brand'
+        path(d='m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z')
+      when 'identity'
+        circle(cx='12' cy='12' r='9')
+        circle(cx='12' cy='12' r='3')
+      when 'print'
+        path(d='M6 9V3h12v6M6 17H3V9h18v8h-3M6 14h12v7H6z')
+      when 'web'
+        path(d='M3 4h18v16H3zM3 9h18')
+      when 'menu'
+        path(d='M3 6h18M3 12h18M3 18h18')
+      when 'close'
+        path(d='m5 5 14 14M19 5 5 19')
+      default
+        circle(cx='12' cy='12' r='9')
+
+mixin btn(label, href, modifier)
+  a(class=['btn', modifier ? 'btn--' + modifier : ''], href=href)&attributes(attributes)
+    block
+    if !block
+      | #{label}
+
+mixin picture(image, alt, loading, width, height)
+  picture.media
+    source(type='image/webp' srcset=`/src/assets/images/${image}.webp`)
+    img(src=`/src/assets/images/${image}.webp` alt=alt width=width || 600 height=height || 474 loading=loading || 'lazy' decoding='async')
+
+mixin work-card(work, index)
+  article.card(data-category=work.category class={'card--first': index === 0})
+    +picture(work.image, work.alt, 'lazy')
+    a.card__overlay(href='#contact' aria-label=`View ${work.title} project`)
+      span.card__plus(aria-hidden='true') +
+      h3.card__title= work.title
+      span.card__category= work.category

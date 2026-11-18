@@ -1,0 +1,21 @@
+section.section(aria-labelledby='clients-title')
+  .container
+    h2.section-title#clients-title Clients &amp; kind words
+    ul.clients
+      each client in clients
+        li.clients__item= client
+    .quote
+      figure
+        span.quote__mark(aria-hidden='true') “
+        blockquote
+          p Keepsake understood our brand from the first call. The new identity helped us double our online orders.
+        figcaption.quote__caption
+          span.avatar(aria-hidden='true') JD
+          span
+            b John Doe
+            br
+            | Creative Director, Acme
+      .quote__dots(aria-label='Slide 1 of 3')
+        span.is-active
+        span
+        span

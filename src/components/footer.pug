@@ -1,0 +1,28 @@
+footer.footer#contact
+  .container
+    .footer__top
+      .subscribe
+        p.subscribe__success#subscribe-success(role='status') Thank you! You are subscribed.
+        form(action='#subscribe-success')
+          label.sr-only(for='email') Email address
+          input#email(type='email' name='email' required placeholder='Your email' aria-describedby='email-error')
+          p#email-error.subscribe__error Enter a valid email, for example name@mail.com.
+          label.subscribe__agree
+            input(type='checkbox' name='agree' required)
+            | I agree to the privacy policy
+          button.btn.btn--primary(type='submit') Subscribe
+      .footer__links
+        each column in footerColumns
+          ul
+            li.footer__heading= column.title
+            each link in column.links
+              li
+                a(href='#contact')= link
+    .footer__bottom
+      p © 2026 Keepsake. All rights reserved.
+      .social
+        each social in socials
+          a.social__link(href='#contact' aria-label=social.label)
+            +icon(social.icon)
+a.back-to-top(href='#top' aria-label='Back to top')
+  +icon('up')
