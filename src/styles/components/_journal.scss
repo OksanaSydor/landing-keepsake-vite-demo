@@ -1,0 +1,44 @@
+@use '../abstracts' as *;
+
+.journal {
+  display: grid;
+  gap: var(--space-4);
+
+  &__post {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  &__post .media {
+    width: var(--preview);
+    height: var(--preview);
+    flex: none;
+  }
+
+  &__meta {
+    color: var(--color-muted);
+    font-size: 12px;
+
+    span {
+      color: var(--color-teal);
+    }
+  }
+
+  &__body h3 {
+    margin: 4px 0 var(--space-1);
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: var(--space-1);
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+}
+
+@include mq(lg) {
+  .journal {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

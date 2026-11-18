@@ -1,0 +1,76 @@
+$colors: (
+  'accent': #f95858,
+  'accent-hover': #e44646,
+  'teal': #2cd5c4,
+  'text-dark': #3a3a3c,
+  'text': #666a6e,
+  'muted': #9aa0a6,
+  'bg-light': #f0f3f4,
+  'border': #e1e5e8,
+  'footer': #2a2a2d,
+  'overlay': rgb(30 32 36 / 82%),
+  'white': #fff
+);
+$breakpoints: ('md': 768px, 'lg': 1280px);
+$spacing: (1: 8px, 2: 16px, 3: 24px, 4: 40px);
+
+:root {
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+
+  --font-head: 'Oswald', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-logo: 'Dancing Script', cursive;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --section-gap: 56px;
+  --gutter: 20px;
+  --container: 1100px;
+  --header-h: 64px;
+  --fs-h1: 26px;
+  --fs-cta: 22px;
+  --fs-nav: 12px;
+  --fs-quote: 16px;
+  --fs-stat: 38px;
+  --fs-logo: 22px;
+  --logo-k: 34px;
+  --icon: 72px;
+  --preview: 96px;
+  --cols: 1;
+  --grid-gap: 12px;
+  --ratio: 1 / 0.72;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --section-gap: 72px;
+    --gutter: 40px;
+    --fs-h1: 32px;
+    --fs-cta: 24px;
+    --fs-nav: 13px;
+    --fs-quote: 19px;
+    --fs-stat: 40px;
+    --fs-logo: 26px;
+    --logo-k: 40px;
+    --icon: 96px;
+    --preview: 150px;
+    --cols: 2;
+    --ratio: 1 / 0.79;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --section-gap: 90px;
+    --gutter: 90px;
+    --fs-h1: 40px;
+    --fs-cta: 28px;
+    --fs-quote: 22px;
+    --fs-stat: 48px;
+    --cols: 3;
+    --grid-gap: 14px;
+  }
+}

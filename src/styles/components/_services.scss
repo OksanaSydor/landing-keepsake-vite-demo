@@ -1,0 +1,35 @@
+@use '../abstracts' as *;
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  text-align: center;
+
+  &__item h3 {
+    margin-bottom: var(--space-1);
+  }
+
+  &__icon {
+    display: grid;
+    width: var(--icon);
+    height: var(--icon);
+    margin: 0 auto var(--space-2);
+    border-radius: 50%;
+    background: var(--color-bg-light);
+    color: var(--color-accent);
+    place-items: center;
+
+    .ic {
+      width: 36px;
+      height: 36px;
+      stroke-width: 1.5;
+    }
+  }
+}
+
+@include mq(lg) {
+  .services {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

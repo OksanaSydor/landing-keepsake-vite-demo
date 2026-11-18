@@ -1,0 +1,56 @@
+@use '../abstracts' as *;
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  padding-block: var(--space-4);
+  border-block: 1px solid var(--color-border);
+  text-align: center;
+
+  &__number {
+    display: block;
+    color: var(--color-text-dark);
+    font: 300 var(--fs-stat) / 1.2 var(--font-head);
+  }
+
+  &__label {
+    color: var(--color-muted);
+    font: 400 var(--fs-nav) / 1 var(--font-head);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.clients {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+
+  &__item {
+    display: grid;
+    height: 64px;
+    border: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font: 700 18px / 1 var(--font-head);
+    place-items: center;
+    text-transform: uppercase;
+  }
+}
+
+@include mq(md) {
+  .stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .clients {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@include mq(lg) {
+  .clients {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
